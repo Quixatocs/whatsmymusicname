@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <title>WhatsMyMusicName</title>
+
+    <!--Dependant libraries-->
+
+    <!--howler.js Script-->
+    <script src="js/libraries/goldfire/howler/howler.min.js"></script>
+
+  </head>
+
+  <body>       
+
+    <div id="banner">
+      <div class="container" id="bannercon">
+        <h1>What's My Music Name?</h1> 
+      </div>
+    </div>
+
+    <!-- Huw's test Script-->
+
+    <script type="text/javascript">
+
+      var count = 0;
+      var countMax = 4;
+        
+      var audioFile = ['audio/BassSat11.mp3',
+                       'audio/BassSat12.mp3',
+                       'audio/BassSat13.mp3',
+                       'audio/BassSat14.mp3'];
+
+      var chosen = Math.floor(Math.random() * audioFile.length);
+
+      var sound = new Howl({
+        urls: [audioFile[chosen]],
+        //autoplay: true,
+        //loop: true,
+        //volume: 0.5,
+        onend: function() {
+          if (count < countMax) {
+            count++;
+            chosen = Math.floor(Math.random() * audioFile.length);
+            console.log(chosen);
+            sound.urls(audioFile[chosen]);
+            sound.play();
+          }
+        }
+      });
+      //sound.urls(audioFile[chosen]);
+      //sound.play();
+
+    </script>
+
+  </body>
+
+<!--
+  <footer>
+    <div class="row" id="footerrow">
+      <ul id="socbar">
+        <a href="mailto:quixatocs@gmail.com?Subject=My Music Name" target="_top">EMAIL  //  </a>
+        <li><a href="https://twitter.com/Quixatocs">TWITTER  //  </a></li>
+        <li><a href="https://github.com/quixatocs">GITHUB  //  </a></li>
+        <li><a href="https://www.instagram.com/quixatocs/">INSTAGRAM</a></li>    
+      </ul>
+    </div>
+-->
+    <hr id="footerhr">
+      <div class="row">
+        <div class="col-md-12" id="copyright">
+          <p>copyright 2015 &copy; Huw Davies (Quixatocs) | all rights reserved</p>
+        </div>
+      </div>
+  </footer>  
